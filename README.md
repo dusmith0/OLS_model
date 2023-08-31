@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/cvCNtTtr)
 # Homework 1 - Getting started
 
-Student: *Last name*, *First name*
+Student: Smith, Dustin 
 
 Helpful resources for R/Git/Github integration for troubleshooting:
 
@@ -14,7 +14,7 @@ Helpful resources for R/Git/Github integration for troubleshooting:
 
 * Install [Rstudio](https://www.rstudio.com/products/rstudio/#Desktop). If you already have Rstudio installed, please update to the most recent version.
 
-* Take a screen shot of your Rstudio console window at Rstudio opening that shows the R version number. Call it **RstudioRversion**.png (could also be jpg, jpeg or pdf depeding on screenshot program you use). You will be uploading this file later.
+* Take a screen shot of your Rstudio console window at Rstudio opening that shows the R version number. Call it **RstudioRversion**.png (could also be jpg, jpeg or pdf depending on screenshot program you use). You will be uploading this file later.
 
 ## Part 2: Other tools installation
 
@@ -34,9 +34,9 @@ For other operating systems, see [Rstudio guide](https://support.rstudio.com/hc/
 ## Part 3: Git installation
 * Install [git](https://git-scm.com). If you use Windows, use [git for Windows](https://gitforwindows.org). In your terminal (Mac OS) or bash (installed with git for Windows), configure Git to recognize you. Please use your TAMU email if possible.
 
-`git config --global user.name “First Last"`
+`git config --global user.name “Dustin Smith"`
 
-`git config --global user.email "email@example.com"`
+`git config --global user.email "dusmith0@tamu.edu"`
 
 * Take a screen shot of your terminal window that shows you executing the above commands. Call it **Gitconfig**.png (could also be jpg, jpeg or pdf depeding on screenshot program you use). You will be uploading this file later.
 
@@ -55,7 +55,7 @@ You can copy the path directly by clicking on **Code** item in Github
 
 * Use Rstudio to open the project associated with the HW1 local directory. You should see the Git tab appear next to Environment and History consoles which will enable you to do staging, commits, pulls and pushes from within Rstudio. You will make all the changes locally, and only then push them to Github. If you do not see the Git tab, see [Rstudio version control](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop) for further help. You may have to restart Rstudio to see the changes.
 
-* Take a screen shot of your Rstudio window with the top right tab showing it's opened on HW1 project, Git panel opened and the Files displaying HW1 folder content.  Call it **RstudioHW1Git**.png (could also be jpg, jpeg or pdf depeding on screenshot program you use). You will be uploading this file later.
+* Take a screen shot of your Rstudio window with the top right tab showing it's opened on HW1 project, Git panel opened and the Files displaying HW1 folder content.  Call it **RstudioHW1Git**.png (could also be jpg, jpeg or pdf depending on screenshot program you use). You will be uploading this file later.
 
 ## Part 5: Basics of git
 
