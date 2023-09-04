@@ -32,19 +32,24 @@ calculateBeta <- function(X, Y){
 }
 
 
-####Funciton Three
+####Function Three
 # Calculate estimation error, defined as ||beta - beta_LS||_2^2
 # beta - true coefficient vector (could be a vector or a matrix with 1 column)
 # beta_LS - vector estimated by LS (could be a vector or a matrix with 1 column)
+
 calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
+  Estimate_Error <- sqrt(sum(beta - beta_LS)^2)
+  return(Estimate_Error)
 }
 
-
+####Function Four
 # Calculate prediction error, defined as ||Y - X beta_LS||_2^2
 # Y - response vector (could be a vector or a matrix with 1 column)
 # X - design matrix, rows are n samples
 # beta_LS - vector estimated by LS (could be a vector or a matrix with 1 column)
+
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
+  
 }
