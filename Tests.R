@@ -36,7 +36,15 @@ calculateEstimationError(beta,beta_LS)
 expect_equal(calculateEstimationError(beta,beta_LS),
             (est <- sqrt((2-2.875692)^2+(3-3.500952)^2)))
 
+#First test of the CalculatePredictionError
+calculatePredictionError(y_values,x,beta_LS)
 
+#Hand calculation
+(diffs <- (y_values-c(2+3,2+6,2+9,2+12,2+15)))
+(squared_diffs <- diffs^2)
+(hand <- sqrt(sum(squared_diffs)))
+
+expect_equal(calculatePredictionError(y_values,x,beta_LS),hand)
 
 
 

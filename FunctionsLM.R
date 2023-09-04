@@ -39,9 +39,10 @@ calculateBeta <- function(X, Y){
 
 calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
-  Estimate_Error <- sqrt(sum((beta - beta_LS)^2))
+  Estimate_Error <- sqrt(sum((beta - beta_LS) ^ 2))
   return(Estimate_Error)
 }
+
 
 ####Function Four
 # Calculate prediction error, defined as ||Y - X beta_LS||_2^2
@@ -51,6 +52,7 @@ calculateEstimationError <- function(beta, beta_LS){
 
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
-  Estimate_Prediction <- sqrt(sum((Y - X%*%beta_LS)^2))
+  Estimate_Prediction <- sqrt(sum((Y - X %*% beta_LS) ^ 2))
   return(Estimate_Prediction)
 }
+
