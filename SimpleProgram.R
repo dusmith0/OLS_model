@@ -27,8 +27,17 @@ calculateEstimationError(beta,beta_LS)
 n = 200 # sample size for testing data
 Xtest = matrix(rnorm(n * p), n, p) # n by p matrix of covariates
 # [ToDo] Use generateY function to generate Ytest for testing data with seed = 678910
+Y <- generateY(Xtest, beta, sigma)
+beta_LS <- calculateBeta(Xtest,Y)
 
-# [ToDo] Use calculatePredictionError to asses the prediction error on Ytest. Report the error in the comments.
+# [ToDo] Use calculatePredictionError to asses the prediction error on Ytest. 
+  #Report the error in the comments.
+prediction_error <- calculatePredictionError(Y,Xtest,beta_LS)
+prediction_error #this produced an error of 26.23676
 
-# [ToDo] Use calculatePredictionError to asses the prediction error on Ytest based only on the first covariate. Report the error in the comments.
+# [ToDo] Use calculatePredictionError to asses the prediction error on Ytest based only on the first covariate.
+# Report the error in the comments.
 # Hint: to avoid error of non-conformable arguments, use Xtest[, 1, drop = FALSE]
+
+
+
