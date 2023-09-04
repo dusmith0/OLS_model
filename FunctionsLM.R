@@ -12,6 +12,9 @@
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model, note to self: default seed is 5832562
   set.seed(seed)
+  if(length(beta) != ncol(X)){
+    stop(paste("The parameters Beta must match the number of columns (or x values) in your model"))
+  } 
   Y <- X %*% beta + rnorm(nrow(X), mean = 0, sd = sigma)
   # Return Y
   return(Y)

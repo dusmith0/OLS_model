@@ -62,7 +62,7 @@ calculateEstimationError(beta,beta_LS)
 calculatePredictionError(y_values,x,beta_LS)
 
 
-### Multiple Regression
+### Multiple regression 
 x <- matrix(c(rep(1,5),1:5,6:10,11:15,16:20),nrow=5)
 beta <- c(1:5) 
 sigma <- 1
