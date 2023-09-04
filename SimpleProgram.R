@@ -38,6 +38,9 @@ prediction_error #this produced an error of 26.23676
 # [ToDo] Use calculatePredictionError to asses the prediction error on Ytest based only on the first covariate.
 # Report the error in the comments.
 # Hint: to avoid error of non-conformable arguments, use Xtest[, 1, drop = FALSE]
-
-
+single_X <- Xtest[ , 1, drop = FALSE]
+Y <- generateY(single_X, beta[1], sigma)
+beta_LS <- calculateBeta(single_X,Y)
+prediction_error <- calculatePredictionError(Y,single_X,beta_LS[1])
+prediction_error #this produced an error of 27.02068
 
