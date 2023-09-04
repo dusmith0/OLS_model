@@ -40,11 +40,35 @@ expect_equal(calculateEstimationError(beta,beta_LS),
 calculatePredictionError(y_values,x,beta_LS)
 
 #Hand calculation
-(diffs <- (y_values-c(2.875692+3.500952*c(1,2,3,4,5))))
-(squared_diffs <- diffs^2)
+(diffs <- (y_values-c(2.875692 + 3.500952 * c(1,2,3,4,5))))
+(squared_diffs <- diffs ^ 2)
 (hand <- sqrt(sum(squared_diffs)))
 
 expect_equal(calculatePredictionError(y_values,x,beta_LS),hand)
 
 
+###I am going to try to invent as weird linear regression models in an attempt
+### to break my functions. 
 
+### no intercept
+x <- matrix(c(1:5),nrow=5)
+beta <- c(3) 
+sigma <- 1
+
+y_values <- generateY(x,beta,sigma)
+beta_LS <- calculateBeta(x,y_values)
+summary(lm(y_values~x))
+calculateEstimationError(beta,beta_LS)
+calculatePredictionError(y_values,x,beta_LS)
+
+
+### Multiple Regression
+x <- matrix(c(rep(1,5),1:5,6:10,11:15,16:20),nrow=5)
+beta <- c(1:5) 
+sigma <- 1
+
+y_values <- generateY(x,beta,sigma)
+beta_LS <- calculateBeta(x,y_values)
+summary(lm(y_values~x))
+calculateEstimationError(beta,beta_LS)
+calculatePredictionError(y_values,x,beta_LS)
