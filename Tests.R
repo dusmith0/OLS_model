@@ -40,7 +40,7 @@ expect_equal(calculateEstimationError(beta,beta_LS),
 calculatePredictionError(y_values,x,beta_LS)
 
 #Hand calculation
-(diffs <- (y_values-c(2+3,2+6,2+9,2+12,2+15)))
+(diffs <- (y_values-c(2.875692+3.500952*c(1,2,3,4,5))))
 (squared_diffs <- diffs^2)
 (hand <- sqrt(sum(squared_diffs)))
 
