@@ -2,6 +2,9 @@
 
 # Source the functions
 source("FunctionsLM.R")
+install.packages("testthat")
+library("testthat")
+
 
 # A random set of small data for testing the function created in FunctionsLM.R
 # to allow for testing if the functions work. 
@@ -11,7 +14,7 @@ beta <- c(2,3)
 sigma <- 3
 
 
-#First test
+#First test of Generate Y
 y_values <- generateY(x,beta,sigma)
 View(y_values)
 plot(x[ ,2],y_values)
@@ -20,8 +23,15 @@ summary(lm(y_values~x[ ,2]))
 str(y_values)
 
 
-#Second Test
-calculateBeta(x,y_values)
+#First Test of Calculate Beta
+beta_LS <- calculateBeta(x,y_values)
 
+#First Test of calculateEstimationError
+calculateEstimationError(beta,beta_LS)
+#Hand calculation based on the above values
+(est <- sqrt((2-2.875692)^2+(3-3.500952)^2))
+
+expect_equal(calculateEstimationError(beta,beta_LS),
+            (est <- sqrt((2-2.875692)^2+(3-3.500952)^2)))
 
 
