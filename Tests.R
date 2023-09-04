@@ -16,5 +16,11 @@ y_values <- generateY(x,beta,sigma)
 plot(x[ ,2],y_values)
 summary(lm(y_values~x[ ,1]))
 
+str(y_values)
+
+
+#Second Test
+calculateBeta(x,y_values)
+
 
 
