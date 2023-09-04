@@ -12,7 +12,7 @@
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model, note to self: default seed is 5832562
   set.seed(seed)
-  Y <- X%*%beta + rnorm(nrow(X), mean = 0, sd = sigma)
+  Y <- X %*% beta + rnorm(nrow(X), mean = 0, sd = sigma)
   # Return Y
   return(Y)
 }
@@ -26,7 +26,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  beta_LS <- solve(t(X)%*%X)%*%t(X)%*%(Y)
+  beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y) 
   # Return beta
   return(beta_LS)
 }
