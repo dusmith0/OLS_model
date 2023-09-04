@@ -28,10 +28,15 @@ beta_LS <- calculateBeta(x,y_values)
 
 #First Test of calculateEstimationError
 calculateEstimationError(beta,beta_LS)
+
 #Hand calculation based on the above values
 (est <- sqrt((2-2.875692)^2+(3-3.500952)^2))
 
+#Comparing the two with TestThat
 expect_equal(calculateEstimationError(beta,beta_LS),
             (est <- sqrt((2-2.875692)^2+(3-3.500952)^2)))
+
+
+
 
 

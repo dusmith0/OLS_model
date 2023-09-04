@@ -51,5 +51,6 @@ calculateEstimationError <- function(beta, beta_LS){
 
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
-  
+  Estimate_Prediction <- sqrt(sum((Y - X%*%beta_LS)^2))
+  return(Estimate_Prediction)
 }
