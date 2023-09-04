@@ -13,8 +13,9 @@ sigma <- 3
 
 #First test
 y_values <- generateY(x,beta,sigma)
+View(y_values)
 plot(x[ ,2],y_values)
-summary(lm(y_values~x[ ,1]))
+summary(lm(y_values~x[ ,2]))
 
 str(y_values)
 
