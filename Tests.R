@@ -72,3 +72,23 @@ beta_LS <- calculateBeta(x,y_values)
 summary(lm(y_values~x))
 calculateEstimationError(beta,beta_LS)
 calculatePredictionError(y_values,x,beta_LS)
+
+
+## unequal matrix sizes. 
+x <- matrix(c(rep(1,5),1:5,6:10,11:15,16:20),nrow=5)
+beta <- c(1:4) 
+sigma <- 1
+
+y_values <- generateY(x,beta,sigma)
+
+##Single Value matrix
+x <- 10
+beta <- c(1)
+sigma <- 1
+
+
+y_values <- generateY(x,beta,sigma)
+beta_LS <- calculateBeta(x,y_values)
+summary(lm(y_values~x))
+calculateEstimationError(beta,beta_LS)
+calculatePredictionError(y_values,x,beta_LS)
