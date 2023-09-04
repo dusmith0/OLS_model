@@ -12,6 +12,8 @@
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model, note to self: default seed is 5832562
   set.seed(seed)
+  X <- as.matrix(X)
+  beta <- as.matrix(beta)
   if(length(beta) != ncol(X)){
     stop(paste("The parameters Beta must match the number of columns (or x values) in your model"))
   } 
