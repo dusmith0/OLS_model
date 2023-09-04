@@ -1,11 +1,17 @@
-# Generate n-dimensional response Y that follows linear regression model Y = Xbeta + epsilon, where epsilon is normal zero with variance sigma^2 independent across samples. Seed should be set at the beginning of the function
+# Generate n-dimensional response Y that follows linear regression model Y = Xbeta + epsilon, 
+# where epsilon is normal zero with variance sigma^2 independent across samples. 
+# Seed should be set at the beginning of the function
+
 # X - design matrix, rows are n samples
 # beta - given parameter vector (could be a vector or a matrix with 1 column)
 # sigma - standard deviation of the noise, scalar
 # seed  - starting seed value, integer
+
+
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model
-  
+  set.seed(seed)
+  Y <- X%*%beta + rnorm(nrow(X), mean = 0, sd = sigma)
   # Return Y
   return(Y)
 }
