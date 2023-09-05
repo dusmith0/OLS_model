@@ -12,8 +12,9 @@
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model, note to self: default seed is 5832562
   set.seed(seed)
-  X <- as.matrix(X)
-  beta <- as.matrix(beta)
+  X <- as.matrix(as.numeric(X))
+  beta <- as.matrix(as.numeric(beta))
+  sigma <- as.numeric(sigma)
   if(length(beta) != ncol(X)){
     stop(paste("The parameters Beta must match the number of columns (or x values) in your model"))
   } 
@@ -31,8 +32,8 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  X <- as.matrix(X)
-  Y <- as.matrix(Y)
+  X <- as.matrix(as.numeric(X))
+  Y <- as.matrix(as.numeric(Y))
   if(rnow(X) != nrow(Y)){
     stop(paste("The number of values in X and Y must match."))
   }
@@ -49,8 +50,8 @@ calculateBeta <- function(X, Y){
 
 calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
-  beta <- as.matrix(beta)
-  beta_LS <- as.matrix(beta_LS)
+  beta <- as.matrix(as.numeric(beta))
+  beta_LS <- as.matrix(as.numeric(beta_LS))
   Estimate_Error <- sqrt(sum((beta - beta_LS) ^ 2))
   return(Estimate_Error)
 }

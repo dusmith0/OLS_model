@@ -98,6 +98,8 @@ calculatePredictionError(y_values,x,beta_LS)
 y_values <- generateY(c(1,2,3),3,3)
 beta_LS <- calculateBeta(c(1,2,3),c(1,2))
 beta_LS <- calculateBeta(c(1,2,3),c(1,2,3))
-calculateEstimationError(beta,beta_LS)
-calculatePredictionError(y_values,x,beta_LS)
+
+#attempting a string input.
+y_values <- generateY(as.numeric(c("1",2,3)),3,3)
+
 
