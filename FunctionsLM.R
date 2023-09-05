@@ -33,6 +33,9 @@ calculateBeta <- function(X, Y){
   # Calculate beta_LS
   X <- as.matrix(X)
   Y <- as.matrix(Y)
+  if(rnow(X) != nrow(Y)){
+    stop(paste("The number of values in X and Y must match."))
+  }
   beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y) 
   # Return beta
   return(beta_LS)
