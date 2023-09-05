@@ -12,11 +12,13 @@
 generateY <- function(X, beta, sigma, seed = 5832652){
   #Set seed and generate Y following linear model, note to self: default seed is 5832562
   set.seed(seed)
-  X <- as.matrix(X)
-  beta <- as.matrix(beta)
-  if(length(beta) != ncol(X)){
+  if(length(beta) != ncol(as.matrix(X))){
     stop(paste("The parameters Beta must match the number of columns (or x values) in your model"))
   } 
+  X <- matrix(as.numeric(X),ncol=length(beta))
+  beta <- as.matrix(as.numeric(beta))
+  sigma <- as.numeric(sigma)
+ 
   Y <- X %*% beta + rnorm(nrow(X), mean = 0, sd = sigma)
   # Return Y
   return(Y)
@@ -31,7 +33,12 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y) 
+  if(nrow(as.matrix(X)) != nrow(as.matrix(Y))){
+    stop(paste("The number of values in X and Y must match."))
+  }
+  X <- matrix(as.numeric(X),nrow=nrow(as.matrix(X)))
+  Y <- matrix(as.numeric(Y),nrow=nrow(as.matrix(Y)))
+  (beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y))
   # Return beta
   return(beta_LS)
 }
@@ -44,6 +51,8 @@ calculateBeta <- function(X, Y){
 
 calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
+  beta <- matrix(as.numeric(beta))
+  beta_LS <- matrix(as.numeric(beta_LS))
   Estimate_Error <- sqrt(sum((beta - beta_LS) ^ 2))
   return(Estimate_Error)
 }
@@ -57,6 +66,9 @@ calculateEstimationError <- function(beta, beta_LS){
 
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
+  Y <- matrix(as.numeric(Y),nrow=nrow(as.matrix(Y)))
+  X <- matrix(as.numeric(X),nrow=nrow(as.matrix(X)))
+  beta_LS <- as.matrix(beta_LS)
   Estimate_Prediction <- sqrt(sum((Y - X %*% beta_LS) ^ 2))
   return(Estimate_Prediction)
 }
