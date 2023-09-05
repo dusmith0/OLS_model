@@ -92,3 +92,12 @@ beta_LS <- calculateBeta(x,y_values)
 summary(lm(y_values~x))
 calculateEstimationError(beta,beta_LS)
 calculatePredictionError(y_values,x,beta_LS)
+
+
+##imputing values without specifying the variables
+y_values <- generateY(c(1,2,3),3,3)
+beta_LS <- calculateBeta(c(1,2,3),c(1,2))
+summary(lm(y_values~x))
+calculateEstimationError(beta,beta_LS)
+calculatePredictionError(y_values,x,beta_LS)
+
