@@ -9,13 +9,13 @@ library("testthat")
 # A random set of small data for testing the function created in FunctionsLM.R
 # to allow for testing if the functions work. 
 
-X <- matrix(c(rep(1,5),1:5),nrow=5)
+x <- matrix(c(rep(1,5),1:5),nrow=5)
 beta <- c(2,3) 
 sigma <- 3
 
 
 #First test of Generate Y
-y_values <- generateY(X,beta,sigma)
+y_values <- generateY(x,beta,sigma)
 View(y_values)
 plot(x[ ,2],y_values)
 summary(lm(y_values~x[ ,2]))
@@ -24,7 +24,7 @@ str(y_values)
 
 
 #First Test of Calculate Beta
-beta_LS <- calculateBeta(x,y_values)
+(beta_LS <- calculateBeta(x,y_values))
 
 #First Test of calculateEstimationError
 calculateEstimationError(beta,beta_LS)

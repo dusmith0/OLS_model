@@ -33,12 +33,12 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  X <- as.matrix(as.numeric(X))
-  Y <- as.matrix(as.numeric(Y))
-  if(rnow(X) != nrow(Y)){
+  if(nrow(X) != nrow(Y)){
     stop(paste("The number of values in X and Y must match."))
   }
-  beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y) 
+  X <- matrix(as.numeric(X),nrow=nrow(X))
+  Y <- matrix(as.numeric(Y))
+  (beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y))
   # Return beta
   return(beta_LS)
 }
@@ -66,8 +66,8 @@ calculateEstimationError <- function(beta, beta_LS){
 
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
-  Y <- as.matrix(Y)
-  X <- as.matrix(X)
+  Y <- matrix(as.numeric(Y),nrow=nrow(Y))
+  X <- matrix(as.numeric(X),nrow=nrow(X))
   beta_LS <- as.matrix(beta_LS)
   Estimate_Prediction <- sqrt(sum((Y - X %*% beta_LS) ^ 2))
   return(Estimate_Prediction)
