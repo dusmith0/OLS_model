@@ -33,11 +33,11 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  if(nrow(X) != nrow(Y)){
+  if(nrow(as.matrix(X)) != nrow(as.matrix(Y))){
     stop(paste("The number of values in X and Y must match."))
   }
-  X <- matrix(as.numeric(X),nrow=nrow(X))
-  Y <- matrix(as.numeric(Y))
+  X <- matrix(as.numeric(X),nrow=nrow(as.matrix(X)))
+  Y <- matrix(as.numeric(Y),nrow=nrow(as.matrix(Y)))
   (beta_LS <- solve(t(X) %*% X) %*% t(X) %*% (Y))
   # Return beta
   return(beta_LS)
@@ -51,8 +51,8 @@ calculateBeta <- function(X, Y){
 
 calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
-  beta <- as.matrix(as.numeric(beta))
-  beta_LS <- as.matrix(as.numeric(beta_LS))
+  beta <- matrix(as.numeric(beta))
+  beta_LS <- matrix(as.numeric(beta_LS))
   Estimate_Error <- sqrt(sum((beta - beta_LS) ^ 2))
   return(Estimate_Error)
 }
@@ -66,8 +66,8 @@ calculateEstimationError <- function(beta, beta_LS){
 
 calculatePredictionError <- function(Y, X, beta_LS){
   # Calculate and return error
-  Y <- matrix(as.numeric(Y),nrow=nrow(Y))
-  X <- matrix(as.numeric(X),nrow=nrow(X))
+  Y <- matrix(as.numeric(Y),nrow=nrow(as.matrix(Y)))
+  X <- matrix(as.numeric(X),nrow=nrow(as.matrix(X)))
   beta_LS <- as.matrix(beta_LS)
   Estimate_Prediction <- sqrt(sum((Y - X %*% beta_LS) ^ 2))
   return(Estimate_Prediction)
