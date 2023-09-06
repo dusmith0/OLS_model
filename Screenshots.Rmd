@@ -1,0 +1,12 @@
+---
+title: "ScreenShots"
+output: html_document
+date: "2023-09-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](C:/Users/dustin.smith/Pictures/Screenshots/Gitconfig.png)
+
