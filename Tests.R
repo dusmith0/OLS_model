@@ -2,7 +2,7 @@
 
 # Source the functions
 source("FunctionsLM.R")
-install.packages("testthat")
+#install.packages("testthat")
 library("testthat")
 
 
@@ -101,5 +101,30 @@ calculatePredictionError(y_values,x,beta_LS)
 
 #attempting a string input.
 (y_values <- generateY((c("1",2,3)),3,3))
+
+
+#Testing to see if the seed will change when it is added to the parameter. 
+
+#This is the bare bones of the function. With seed 5832652
+x <- matrix(c(rep(1,5),1:5),nrow=5)
+beta <- c(2,3) 
+sigma <- 3
+seed = 5832652
+set.seed(seed)
+  
+Y <- x %*% beta + rnorm(nrow(X), mean = 0, sd = sigma)
+
+#Checking it against my function.
+expect_equal(generateY(x,beta,sigma),Y)
+#This returned no value, so I assume they are good!
+
+
+
+
+
+
+
+
+
 
 
