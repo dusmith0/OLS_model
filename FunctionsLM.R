@@ -53,7 +53,7 @@ calculateEstimationError <- function(beta, beta_LS){
   # Calculate and return error
   beta <- matrix(as.numeric(beta))
   beta_LS <- matrix(as.numeric(beta_LS))
-  Estimate_Error <- sqrt(sum((beta - beta_LS) ^ 2))
+  Estimate_Error <- sum((beta - beta_LS) ^ 2)
   return(Estimate_Error)
 }
 
