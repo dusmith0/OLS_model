@@ -41,7 +41,9 @@
     
 #### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
-    $$sum((beta - beta_est) ^2)$$
+    ```math
+    sum((beta - beta_est) ^2)
+    ```
     
     ```{r, echo = TRUE, eval = TRUE}
     calculateEstimationError(beta,beta_LS)
