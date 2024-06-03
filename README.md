@@ -28,7 +28,7 @@
     
 #### calculateBeta 
     This function generates estimated betas using the typical LSRL matrix calculation.
-    $\(X^t*X)^-1*X^t*Y$
+    $$(X^t*X)^-1*X^t*Y$$
     Parameters:
     1.  X: The data set of explanatory variables (Matrix)
     2.  Y: The data set of generated response variables (Vector)
@@ -41,7 +41,7 @@
     
 #### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
-    $\sum((beta - beta_est) ^2)$
+    $$sum((beta - beta_est) ^2)$$
     
     ```{r, echo = TRUE, eval = TRUE}
     calculateEstimationError(beta,beta_LS)
@@ -49,7 +49,7 @@
     
 #### calculatePredictionError
     This function calculates the MSE in Y-value predictions and actuality using the formula below:
-    $\sqrt(sum((Y - X %*% beta_LS) ^ 2))$
+    $$sqrt(sum((Y - X %*% beta_LS) ^ 2))$$
     
     
 #### Example
