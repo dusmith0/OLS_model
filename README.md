@@ -15,18 +15,7 @@ $$ sqrt(4)$$
   3. sigma: an assigned number to control the variation of the added noise.  
   4. seed: set at 5832652
     
-    ```{r, eval = TRUE, echo = TRUE}
-    p = 10 # number of covariates
-    sigma = 2 # noise standard deviation
-    beta = c(2, rep(0, p-1)) # true vector of coefficients
 
-    n = 100 # sample size for training data
-    X = matrix(rnorm(n * p), n, p) # n by p matrix of predictors
-    Y <- generateY(X, beta, sigma)
-    head(Y)
-    dim(Y)
-
-    ```
   
 ### calculateBeta 
     This function generates estimated betas using the typical LSRL matrix calculation.
