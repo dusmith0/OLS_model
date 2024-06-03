@@ -7,10 +7,11 @@
 #### generateY
   This function is used to generate y values to test on. 
   Parameters:
-    1. X: a Matrix of data points to be used for x. 
-    2. beta: Initial beta values
-    3. sigma: an assigned number to control the variation of the added noise.  
-    4. seed: set at 5832652
+  
+  1. X: a Matrix of data points to be used for x. 
+  2. beta: Initial beta values
+  3. sigma: an assigned number to control the variation of the added noise.  
+  4. seed: set at 5832652
     
     ```{r, eval = TRUE, echo = TRUE}
     p = 10 # number of covariates
@@ -32,11 +33,11 @@
     1.  X: The data set of explanatory variables (Matrix)
     2.  Y: The data set of generated response variables (Vector)
 
-    ```{r, echo = TRUE, eval = TRUE}
-    beta_est <- calculateBeta(X,Y)
-    head(beta_est)
-    beta
-    ```
+      ```{r, echo = TRUE, eval = TRUE}
+      beta_est <- calculateBeta(X,Y)
+      head(beta_est)
+      beta
+      ```
     
 #### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
