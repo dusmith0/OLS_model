@@ -32,6 +32,7 @@
     Parameters:
     1.  X: The data set of explanatory variables (Matrix)
     2.  Y: The data set of generated response variables (Vector)
+    #####
 
       ```{r, echo = TRUE, eval = TRUE}
       beta_est <- calculateBeta(X,Y)
@@ -41,6 +42,7 @@
     
 #### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
+    #####
     ```math
     sum((beta - beta_est) ^2)
     ```
