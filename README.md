@@ -4,6 +4,8 @@
 
 ## Functions
 
+$$ sqrt(4)$$
+
 #### generateY
   This function is used to generate y values to test on. 
   Parameters:
@@ -25,14 +27,14 @@
     dim(Y)
 
     ```
-    
-#### calculateBeta 
+  
+### calculateBeta 
     This function generates estimated betas using the typical LSRL matrix calculation.
     $$(X^t*X)^-1*X^t*Y$$
     Parameters:
     1.  X: The data set of explanatory variables (Matrix)
     2.  Y: The data set of generated response variables (Vector)
-    #####
+
 
       ```{r, echo = TRUE, eval = TRUE}
       beta_est <- calculateBeta(X,Y)
@@ -40,9 +42,8 @@
       beta
       ```
     
-#### calculateEstimationError 
+### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
-    #####
     ```math
     sum((beta - beta_est) ^2)
     ```
@@ -51,12 +52,12 @@
     calculateEstimationError(beta,beta_LS)
     ```
     
-#### calculatePredictionError
+### calculatePredictionError
     This function calculates the MSE in Y-value predictions and actuality using the formula below:
     $$sqrt(sum((Y - X %*% beta_LS) ^ 2))$$
     
-    
-#### Example
+  
+### Example
   ```{r, echo = TRUE, eval = TRUE}
   # Testing data generator
   n = 200 # sample size for testing data
