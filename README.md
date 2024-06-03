@@ -4,13 +4,13 @@
 
 ## Functions
 
-### generateY
+#### generateY
   This function is used to generate y values to test on. 
   Parameters:
-    X: a Matrix of data points to be used for x. 
-    beta: Initial beta values
-    sigma: an assigned number to control the variation of the added noise.  
-    seed set at 5832652
+    1. X: a Matrix of data points to be used for x. 
+    2. beta: Initial beta values
+    3. sigma: an assigned number to control the variation of the added noise.  
+    4. seed: set at 5832652
     
     ```{r, eval = TRUE, echo = TRUE}
     p = 10 # number of covariates
@@ -25,12 +25,12 @@
 
     ```
     
-### calculateBeta 
+#### calculateBeta 
     This function generates estimated betas using the typical LSRL matrix calculation.
     $(X^t*X)^-1*X^t*Y$
     Parameters:
-      X: The data set of explanatory variables (Matrix)
-      Y: The data set of generated response variables (Vector)
+    1.  X: The data set of explanatory variables (Matrix)
+    2.  Y: The data set of generated response variables (Vector)
 
     ```{r, echo = TRUE, eval = TRUE}
     beta_est <- calculateBeta(X,Y)
@@ -38,7 +38,7 @@
     beta
     ```
     
-### calculateEstimationError 
+#### calculateEstimationError 
     This function calculates the total squared error in Beta estimates. I am using the given formula below:
     $sum((beta - beta_est) ^2)$
     
@@ -46,12 +46,12 @@
     calculateEstimationError(beta,beta_LS)
     ```
     
-### calculatePredictionError
-    This function calculates the MSE in Y-value predicitons and actaulity using the formula below:
+#### calculatePredictionError
+    This function calculates the MSE in Y-value predictions and actuality using the formula below:
     $sqrt(sum((Y - X %*% beta_LS) ^ 2))$
     
     
-## Below is an examplar of what these functions were used for:
+#### Example
   ```{r, echo = TRUE, eval = TRUE}
   # Testing data generator
   n = 200 # sample size for testing data
