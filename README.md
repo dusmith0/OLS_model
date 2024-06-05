@@ -4,8 +4,6 @@
 
 ## Functions
 
-$$ sqrt(4)$$
-
 #### generateY
   This function is used to generate y values to test on. 
   Parameters:
@@ -15,9 +13,20 @@ $$ sqrt(4)$$
   3. sigma: an assigned number to control the variation of the added noise.  
   4. seed: set at 5832652
     
+    ```{r, eval = TRUE, echo = TRUE}
+    p = 10 # number of covariates
+    sigma = 2 # noise standard deviation
+    beta = c(2, rep(0, p-1)) # true vector of coefficients
 
+    n = 100 # sample size for training data
+    X = matrix(rnorm(n * p), n, p) # n by p matrix of predictors
+    Y <- generateY(X, beta, sigma)
+    head(Y)
+    dim(Y)
+
+    ```
   
-### calculateBeta 
+#### calculateBeta 
     This function generates estimated betas using the typical LSRL matrix calculation.
     $$(X^t*X)^-1*X^t*Y$$
     Parameters:
@@ -31,22 +40,20 @@ $$ sqrt(4)$$
       beta
       ```
     
-### calculateEstimationError 
-    This function calculates the total squared error in Beta estimates. I am using the given formula below:
-    ```math
-    sum((beta - beta_est) ^2)
-    ```
+#### calculateEstimationError 
+     This function calculates the total squared error in Beta estimates. I am using the given formula below:
+     $$sum((beta - beta_est) ^2)$$
     
     ```{r, echo = TRUE, eval = TRUE}
     calculateEstimationError(beta,beta_LS)
     ```
     
-### calculatePredictionError
+#### calculatePredictionError
     This function calculates the MSE in Y-value predictions and actuality using the formula below:
     $$sqrt(sum((Y - X %*% beta_LS) ^ 2))$$
     
   
-### Example
+#### Example
   ```{r, echo = TRUE, eval = TRUE}
   # Testing data generator
   n = 200 # sample size for testing data
