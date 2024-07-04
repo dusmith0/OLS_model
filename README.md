@@ -28,7 +28,7 @@ dim(Y)
   
 #### calculateBeta 
 This function generates estimated betas using the typical LSRL matrix calculation.
-$`(X^t \times X)^{-1} \times X^t \times Y`$
+$`(X^tX)^{-1}X^tY`$
 Parameters:
 1.  X: The data set of explanatory variables (Matrix)
 2.  Y: The data set of generated response variables (Vector)
